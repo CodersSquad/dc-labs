@@ -1,4 +1,5 @@
 # Classify Requirements
+SHELL                = bash
 GITHUB_USER         ?= demo
 CLASSIFY_ENDPOINT   ?= http://classify.obedmr.com
 CLASSIFY_TOKEN      ?= demo
