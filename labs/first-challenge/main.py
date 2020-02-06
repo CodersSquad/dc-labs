@@ -1,13 +1,9 @@
 word = input()
 
 substrings = set()
-
 new_word = ""
-
 longest = ""
-
 start = 0
-
 position = 0
 
 while position < len(word):
