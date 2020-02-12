@@ -3,6 +3,7 @@ NAME		  ?= Demo User
 GITHUB_USER       ?= demo
 SCHOOL_ID         ?= A00123456
 CLASSIFY_ENDPOINT ?= http://classify.obedmr.com/
+CLASS_ID           = 07184303-556d-46ea-ab9d-bd56a9305609
 EXECUTABLES        = curl jq
 
 all: user
@@ -12,7 +13,7 @@ deps:
          $(if $(shell which $(exec)),,$(error "There's no '$(exec)' binary in your PATH")))
 
 user: deps
-	curl -k -s -X POST -d "githubID=${GITHUB_USER}&name=${NAME}&schoolID=${SCHOOL_ID}" $(CLASSIFY_ENDPOINT)/users | jq
+	curl -k -s -X POST -d "githubID=${GITHUB_USER}&name=${NAME}&schoolID=${SCHOOL_ID}&class=${CLASS_ID}" $(CLASSIFY_ENDPOINT)/users | jq
 
 test: deps
 	@echo User Information
