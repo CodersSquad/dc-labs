@@ -7,8 +7,7 @@ CLASSIFY_TOKEN_FILE ?= ${HOME}/.classify_token
 EXECUTABLES          = curl jq
 
 # Common Submission targets
-
-submit: deps
+submit: deps check-branch
 	@if [[ $$(git ls-files --others --modified --exclude-standard | wc -l) -gt 0 ]]; then \
 		echo "You have uncommitted files. Verify them and then, add and commit them."; \
 		make clean; \
@@ -29,3 +28,12 @@ check-submission:
 deps:
         $(foreach exec,$(EXECUTABLES),\
          $(if $(shell which $(exec)),,$(error "There's no '$(exec)' binary in your PATH")))
+
+check-branch:
+	@if [[ $$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) = "master" ]]; then \
+		echo "You cannot make submissions on [master] branch," \
+		"please follow Classify API instructions to create a new branch for your lab and then submit your work."; \
+		echo "You can check the current branch you are on with:";  \
+		echo "git branch"; \
+		exit -1; \
+	fi
