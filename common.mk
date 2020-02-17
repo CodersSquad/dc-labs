@@ -19,12 +19,14 @@ submit: deps check-branch
 	@$(eval BRANCH := $(shell git rev-parse --abbrev-ref HEAD))
 	@$(eval COMMIT_ID := $(shell git log --format='%H' -n 1))
 	@$(eval CLASSIFY_TOKEN := $(shell [ -f ${CLASSIFY_TOKEN_FILE} ] && cat ${CLASSIFY_TOKEN_FILE} || echo ${CLASSIFY_TOKEN}))
+	@$(eval LAB_ID := $(shell curl -s -k ${CLASSIFY_ENDPOINT}/labs\?ClassID\=${CLASS_ID}\&RepoDir=$$(basename "$$PWD") | jq -r '.labs[0].ID'))
 
-	@curl -k -s -X POST -d "branch=$(BRANCH)&commit=$(COMMIT_ID)&token=$(CLASSIFY_TOKEN)&class=$(CLASS_ID)" $(CLASSIFY_ENDPOINT)/labs/$(USER_ID)/$$(basename "$$PWD") | jq
+	@curl -k -s -X POST -d "branch=$(BRANCH)&commit=$(COMMIT_ID)&token=$(CLASSIFY_TOKEN)&class=$(CLASS_ID)" $(CLASSIFY_ENDPOINT)/labs/$(USER_ID)/${LAB_ID} | jq
 
 check-submission:
 	@$(eval USER_ID := $(shell curl -s -k ${CLASSIFY_ENDPOINT}/users\?githubID\=${GITHUB_USER} | jq -r '.users[0].ID'))
-	@curl -k -s  $(CLASSIFY_ENDPOINT)/labs/$(USER_ID)/$$(basename "$$PWD") | jq
+	@$(eval LAB_ID := $(shell curl -s -k ${CLASSIFY_ENDPOINT}/labs\?ClassID\=${CLASS_ID}\&RepoDir=$$(basename "$$PWD") | jq -r '.labs[0].ID'))
+	@curl -k -s  $(CLASSIFY_ENDPOINT)/labs/$(USER_ID)/${LAB_ID} | jq
 
 deps:
         $(foreach exec,$(EXECUTABLES),\
