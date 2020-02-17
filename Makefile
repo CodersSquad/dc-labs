@@ -30,3 +30,5 @@ check-submission:
 	@echo Example:
 	@echo cd labs/first-challenge
 	@echo GITHUB_USER=demo make check-submission
+
+.PHONY: clean deps submit check-submission test user

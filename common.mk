@@ -40,3 +40,5 @@ check-branch:
 		echo "git branch"; \
 		exit -1; \
 	fi
+
+.PHONY: clean deps submit check-submission check-branch
