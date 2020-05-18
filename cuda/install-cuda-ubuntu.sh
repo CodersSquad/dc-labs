@@ -4,7 +4,7 @@
 sudo apt update -y
 
 # Install common tools
-sudo apt install tmux tmate emacs-nox vim htop git gcc make jq curl linux-headers-$(uname -r) -y
+sudo apt install tmux tmate emacs-nox vim htop git gcc make jq curl linux-headers-$(uname -r) python -y
 
 # Emacs & floobits setup
 mkdir .emacs.d
@@ -35,6 +35,9 @@ newgrp docker
 docker ps
 
 # CUDA Samples tests
+# Evironment Setup
+echo "export PATH=/usr/local/cuda-10.2/bin/:\$PATH" >> $HOME/.profile
+echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}" >>  $HOME/.profile
 source $HOME/.profile
 cuda-install-samples-10.2.sh $HOME/cuda-samples
 pushd $HOME/cuda-samples/NVIDIA_CUDA-10.2_Samples/0_Simple/simplePrintf
