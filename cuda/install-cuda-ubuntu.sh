@@ -8,9 +8,9 @@ sudo apt install tmux tmate emacs-nox vim htop git gcc make jq curl linux-header
 
 # Emacs & floobits setup
 mkdir .emacs.d
-pushd
+pushd .emacs.d
 git clone https://github.com/Floobits/floobits-emacs.git floobits
-echo (load "~/.emacs.d/floobits/floobits.el") >> ~/.emacs
+echo "(load \"~/.emacs.d/floobits/floobits.el\")" >> ~/.emacs
 popd
 curl -Ok https://raw.githubusercontent.com/CodersSquad/dc-labs/master/.dotfiles/.floorc.json
 
