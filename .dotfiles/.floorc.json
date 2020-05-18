@@ -1,0 +1,9 @@
+{
+    "auth": {
+	"floobits.com": {
+	    "username": "your_username",
+	    "api_key": "your_api_key",
+	    "secret": "your_api_secret_not_your_password"
+	}
+    }
+}

@@ -4,7 +4,15 @@
 sudo apt update -y
 
 # Install common tools
-sudo apt install tmux tmate emacs-nox vim htop git gcc make jq linux-headers-$(uname -r) -y
+sudo apt install tmux tmate emacs-nox vim htop git gcc make jq curl linux-headers-$(uname -r) -y
+
+# Emacs & floobits setup
+mkdir .emacs.d
+pushd
+git clone https://github.com/Floobits/floobits-emacs.git floobits
+echo (load "~/.emacs.d/floobits/floobits.el") >> ~/.emacs
+popd
+curl -Ok https://raw.githubusercontent.com/CodersSquad/dc-labs/master/.dotfiles/.floorc.json
 
 # Install CUDA Toolkit
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
@@ -13,13 +21,18 @@ wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installer
 sudo dpkg -i cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
 sudo apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
 sudo apt update -y
-sudo apt -y install cuda
+sudo DEBIAN_FRONTEND=noninteractive apt -y install cuda
 rm -f cuda-repo*
 
-# Evironment Setup
-echo "export PATH=/usr/local/cuda-10.2/bin/:\$PATH" >> $HOME/.profile
-echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}" >>  $HOME/.profile
+# Install Docker
+sudo apt-get remove docker docker-engine docker.io -y
+sudo apt install docker.io -y
+sudo systemctl start docker
 
+# Add user to docker group
+sudo usermod -aG docker $(whoami)
+newgrp docker
+docker ps
 
 # CUDA Samples tests
 source $HOME/.profile
