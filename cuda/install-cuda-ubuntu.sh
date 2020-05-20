@@ -6,14 +6,6 @@ sudo apt update -y
 # Install common tools
 sudo apt install tmux tmate emacs-nox vim htop git gcc make jq curl linux-headers-$(uname -r) python -y
 
-# Emacs & floobits setup
-mkdir .emacs.d
-pushd .emacs.d
-git clone https://github.com/Floobits/floobits-emacs.git floobits
-echo "(load \"~/.emacs.d/floobits/floobits.el\")" >> ~/.emacs
-popd
-curl -Ok https://raw.githubusercontent.com/CodersSquad/dc-labs/master/.dotfiles/.floorc.json
-
 # Install CUDA Toolkit
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
