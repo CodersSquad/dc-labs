@@ -53,7 +53,7 @@ $ curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/logout
 
 - **Upload**
 ```
-$ curl -F ‘data=@path/to/local/image.png’ -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/upload
+$ curl -F 'data=@path/to/local/image.png' -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/upload
 {
 	"message": "An image has been successfully uploaded",
 	"filename": "image.png",
