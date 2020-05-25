@@ -23,8 +23,6 @@ sudo systemctl start docker
 
 # Add user to docker group
 sudo usermod -aG docker $(whoami)
-newgrp docker
-docker ps
 
 # CUDA Samples tests
 # Evironment Setup
