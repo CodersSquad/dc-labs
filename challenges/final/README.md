@@ -91,7 +91,7 @@ $ curl -F 'data=@path/to/local/image.png' -d 'workload-id=my-filters&filter=gray
 - **Results Endpoint**
   - http://localhost:8080/results/<workload_id>
 
-- A [script](#) is provided to do an intensive end-to-end testing
+- A [script](https://floobits.com/obedmr/dc-labs/file/final/stress_test.py) is provided to do an intensive end-to-end testing
 
 "Game" Rules
 ------------
