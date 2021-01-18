@@ -37,6 +37,10 @@ curl -k -s -X POST -d "githubID=Demo User&name=demo&schoolID=DEMO1234&class=0718
 }
 ```
 
+*Don't forget to save your token into the git local configuration*
+```
+git config --local classify.token JDJhJDEwJC5INmZuLy54VmdCeEU1YkRIbDY2ZXVhb0FBclcvMGx5M2hXVkJtWVF1aC9YNG8zUFp6UVo2
+```
 
 
 Verify that your user exists in Classify
