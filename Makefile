@@ -3,7 +3,7 @@ NAME		  ?= Demo User
 GITHUB_USER       ?= demo
 SCHOOL_ID         ?= A00123456
 CLASSIFY_ENDPOINT ?= http://classify.obedmr.com/
-CLASS_ID           = 07184303-556d-46ea-ab9d-bd56a9305609
+CLASS_ID           = 07184303-556d-46ea-ab9d-bd56a9305615
 EXECUTABLES        = curl jq
 
 all: user
@@ -20,15 +20,13 @@ test: deps
 	curl -k -s $(CLASSIFY_ENDPOINT)/users\?githubID\=$(GITHUB_USER)  | jq
 
 submit:
-	@echo Cannot submit your lab. You must be located in the lab directory
+	@echo You cannot submit your lab here. You must be located in the lab directory
 	@echo Example:
-	@echo cd labs/first-challenge
-	@echo GITHUB_USER=demo make submit
+	@echo cd labs/test-lab
+	@echo make submit
 
 check-submission:
-	@echo Cannot check your submission. You must be located in the lab directory
+	@echo You cannot check your submission here. You must be located in the lab directory
 	@echo Example:
-	@echo cd labs/first-challenge
-	@echo GITHUB_USER=demo make check-submission
-
-.PHONY: clean deps submit check-submission test user
+	@echo cd labs/test-lab
+	@echo make check-submission
