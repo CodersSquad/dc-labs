@@ -13,8 +13,8 @@ deps:
          $(if $(shell which $(exec)),,$(error "There's no '$(exec)' binary in your PATH")))
 
 user: deps
-	@$(eval GITHUB_USER := $(shell git config --local classify.fullname))
-	@$(eval NAME := $(shell git config --local classify.github-user))
+	@$(eval GITHUB_USER := $(shell git config --local classify.github-user))
+	@$(eval NAME := $(shell git config --local classify.fullname))
 	@$(eval SCHOOL_ID := $(shell git config --local classify.school-id))
 	curl -k -s -X POST -d "githubID=${GITHUB_USER}&name=${NAME}&schoolID=${SCHOOL_ID}&class=${CLASS_ID}" $(CLASSIFY_ENDPOINT)/users | jq
 
