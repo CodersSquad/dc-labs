@@ -113,3 +113,8 @@ Change the `demo` user to your github user account.
 ```
 make submit
 ```
+
+6. Verify that your work is properly submitted to the Classify API
+```
+make check-submission
+```
