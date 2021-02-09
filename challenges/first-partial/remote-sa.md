@@ -24,15 +24,15 @@ Execution example
 
 You will need 2 terminals:
 
-- **Terminal 1**
+- **Terminal 1 - Server**
 ```
 $ make serve
 ```
 
-- **Terminal 2**
+- **Terminal 2 - Client**
 ```
 # Working example
-$ curl http://localhost:8000?vertices=(-3,1),(2,3),(0,0),(-1.5,-2.5)
+$ curl http://localhost:8000\?vertices\=\(-3,\1),\(2,3\),\(0,0\),\(-1.5,-2.5\)
 Welcome to the Remote Shapes Analyzer
 - Your figure has      : [4] vertices
 - Vertices             : (-3,1) (2,3) (0,0) (-1.5, -2.5)
@@ -40,7 +40,7 @@ Welcome to the Remote Shapes Analyzer
 - Calculated Area      : 10.5
 
 # Error handling example
-$ curl http://localhost:8000/vertices=(-3,1)(2,3)
+$ curl http://localhost:8000\?vertices=\(-3,1\)\(2,3\)
 Welcome to the Remote Shapes Analyzer
 - Your figure has      : [2] vertices
 ERROR - Your shape is not compliying with the minimum number of vertices.
@@ -53,12 +53,12 @@ Test Cases
 It can be automatically tested with the following commands. You will be required to open 2 terminals.
 This is the way your program will be tested by the Classify API tester.
 
-- **Terminal 1**
+- **Terminal 1 - Server**
 ```
 $ make serve
 ```
 
-- **Terminal 2**
+- **Terminal 2 - Client**
 ```
 $ make test
 ```
