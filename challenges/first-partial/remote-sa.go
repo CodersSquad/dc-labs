@@ -44,15 +44,15 @@ func generatePoints(s string) ([]Point, error) {
 }
 
 // getArea gets the area inside from a given shade
-func getArea(points []Point) int {
+func getArea(points []Point) float64 {
 	// Your code goes here
-	return 0
+	return 0.0
 }
 
 // getPerimeter gets the perimeter from a given array of connected points
-func getPerimeter(points []Point) int {
+func getPerimeter(points []Point) float64 {
 	// Your code goes here
-	return 0
+	return 0.0
 }
 
 // handler handles the web request and reponds it
