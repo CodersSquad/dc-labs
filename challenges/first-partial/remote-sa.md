@@ -66,4 +66,4 @@ $ make test
 *Extra Note:*
 
 If you want to test your program manually, you open the
-(`lab.mk`)[lab.mk] file and you the `curl` commands separately.
+[`lab.mk`](lab.mk) file and you the `curl` commands separately.
