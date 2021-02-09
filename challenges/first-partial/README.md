@@ -1,7 +1,7 @@
 Challenge:  First Term Partial
 ==============================
 
-This is the first term challenge-based exam for the Distributed Computing Class. Below you will find each of the challenge's parts details.
+This is the first term challenge-based exam for the Distributed Computing Class.
 
 - This is an individual challenge, keep the focus on you work.
 - You're free to use the internet for coding references.
@@ -13,7 +13,7 @@ General Submission Instructions
 -------------------------------
 
 1. Read and follow the instructions on:
-  - [Remote Share Analyzer](./remote-sa.md)
+  - [Remote Shades Analyzer](./remote-sa.md)
 
 2. Commit and Push your code to your personal repository (fork) on (first-partial) branch.
 
