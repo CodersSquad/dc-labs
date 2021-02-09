@@ -10,19 +10,16 @@ This is the first term challenge-based exam for the Distributed Computing Class.
 
 
 General Submission Instructions
---------------------
+-------------------------------
 
 1. Read and follow the instructions on:
-  - [Pacman Log Analyzer](./pacman-analyzer.md)
+  - [Remote Share Analyzer](./remote-sa.md)
 
-2. Commit and Push your code to your personal repository (fork) and branch (first-partial).
+2. Commit and Push your code to your personal repository (fork) on (first-partial) branch.
 
 3. Once you're done, follow common lab's sumission process. More details at: [Classify API](../../classify.md)
 ```
-GITHUB_USER=<your_github_account> make submit
-
-# Example:
-GITHUB_USER=obedmr make submit
+make submit
 ```
 
 Grading Policy
@@ -34,6 +31,5 @@ The grading policy is quite simple, most falls in the test cases. Below the perc
 | Concept                             | %    |
 |-------------------------------------|------|
 | Code Style best practices           | 20%  |
-| Test Cases                          | 60%  |
-| Program meets with all requirements | 20%  |
+| Test Cases                          | 80%  |
 | TOTAL                               | 100% |
