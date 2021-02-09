@@ -6,10 +6,9 @@ number of vertices in the command line, verify that they all together
 are forming an irregular shape without collisions (you can see the
 following
 [link](https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/)
-to verify collisions), then, calculate the perimeter. Finally, return it to the
-web request.
+to verify collisions), then, calculate the area and
+perimeter. Finally, reply the web request with your results.
 
-- Take a look on geometry for some guidance
 
 General Requirements
 --------------------
@@ -65,4 +64,6 @@ $ make test
 ```
 
 *Extra Note:*
-You you want to test your program manually, you open the (`lab.mk`)[./lab.mk] file and you the `curl` commands separately.
+
+If you want to test your program manually, you open the
+(`lab.mk`)[lab.mk] file and you the `curl` commands separately.
