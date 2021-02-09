@@ -43,7 +43,7 @@ func generatePoints(s string) ([]Point, error) {
 	return points, nil
 }
 
-// getArea gets the area inside from a given shade
+// getArea gets the area inside from a given shape
 func getArea(points []Point) float64 {
 	// Your code goes here
 	return 0.0
@@ -79,7 +79,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Received vertices array: %v", vertices)
 
 	// Response construction
-	response := fmt.Sprintf("Welcome to the Remote Shades Analyzer\n")
+	response := fmt.Sprintf("Welcome to the Remote Shapes Analyzer\n")
 	response += fmt.Sprintf(" - Your figure has : [%v] vertices\n", len(vertices))
 	response += fmt.Sprintf(" - Vertices        : %v\n", vertices)
 	response += fmt.Sprintf(" - Perimeter       : %v\n", perimeter)

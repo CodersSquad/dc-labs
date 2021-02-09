@@ -1,6 +1,6 @@
-Remote Shades Analyzer
+Remote Shapes Analyzer
 ======================
-The `Remote Shades Analyzer` will work as a web server that will
+The `Remote Shapes Analyzer` will work as a web server that will
 calculate the perimeter and area of a given irregular shape.  Given a
 number of vertices in the command line, verify that they all together
 are forming an irregular shape without collisions (you can see the
@@ -33,7 +33,7 @@ $ make serve
 ```
 # Working example
 $ curl http://localhost:8000?vertices=(-3,1),(2,3),(0,0),(-1.5,-2.5)
-Welcome to the Remote Shades Analyzer
+Welcome to the Remote Shapes Analyzer
 - Your figure has      : [4] vertices
 - Vertices             : (-3,1) (2,3) (0,0) (-1.5, -2.5)
 - Calculated Perimeter : 16.7
@@ -41,9 +41,9 @@ Welcome to the Remote Shades Analyzer
 
 # Error handling example
 $ curl http://localhost:8000/vertices=(-3,1)(2,3)
-Welcome to the Remote Shades Analyzer
+Welcome to the Remote Shapes Analyzer
 - Your figure has      : [2] vertices
-ERROR - Your shade is not compliying with the minimum number of vertices.
+ERROR - Your shape is not compliying with the minimum number of vertices.
 ```
 
 

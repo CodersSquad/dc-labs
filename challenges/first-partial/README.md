@@ -13,7 +13,7 @@ General Submission Instructions
 -------------------------------
 
 1. Read and follow the instructions on:
-  - [Remote Shades Analyzer](./remote-sa.md)
+  - [Remote Shapes Analyzer](./remote-sa.md)
 
 2. Commit and Push your code to your personal repository (fork) on (first-partial) branch.
 
