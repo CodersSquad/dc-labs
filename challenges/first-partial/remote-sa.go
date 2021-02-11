@@ -90,20 +90,26 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// Results gathering
-	area := getArea(vertices)
-	perimeter := getPerimeter(vertices)
-
 	// Logging in the server side
 	log.Printf("Received vertices array: %v", vertices)
 
-	// Response construction
-	response := fmt.Sprintf("Welcome to the Remote Shapes Analyzer\n")
-	response += fmt.Sprintf(" - Your figure has : [%v] vertices\n", len(vertices))
-	response += fmt.Sprintf(" - Vertices        : %v\n", vertices)
-	response += fmt.Sprintf(" - Perimeter       : %v\n", perimeter)
-	response += fmt.Sprintf(" - Area            : %v\n", area)
+	var response string
+	if len(vertices) > 2 {
+		// Results gathering
+		area := getArea(vertices)
+		perimeter := getPerimeter(vertices)
 
+		// Response construction
+		response = fmt.Sprintf("Welcome to the Remote Shapes Analyzer\n")
+		response += fmt.Sprintf(" - Your figure has : [%v] vertices\n", len(vertices))
+		response += fmt.Sprintf(" - Vertices        : %v\n", vertices)
+		response += fmt.Sprintf(" - Perimeter       : %v\n", perimeter)
+		response += fmt.Sprintf(" - Area            : %v\n", area)
+	} else {
+		// Response construction
+		response = fmt.Sprintf("Welcome to the Remote Shapes Analyzer\n")
+		response += fmt.Sprintf(" Error: Your input has [%v] vertices, so they can not build any figure\n", len(vertices))
+	}
 	// Send response to client
 	fmt.Fprintf(w, response)
 }
