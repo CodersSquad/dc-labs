@@ -59,7 +59,7 @@ func getArea(points []Point) float64 {
 }
 
 // Distance between two Points
-func Distance(p, q Point) float64 {
+func getDistance(p, q Point) float64 {
 	return math.Hypot(q.X-p.X, q.Y-p.Y)
 }
 
@@ -68,7 +68,7 @@ func getPerimeter(points []Point) float64 {
 	points = append(points, points[0])
 	perimeter := 0.0
 	for i := 0; i < len(points)-1; i++ {
-		distance := Distance(points[i], points[i+1])
+		distance := getDistance(points[i], points[i+1])
 		perimeter += distance
 	}
 	return perimeter
@@ -108,7 +108,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		// Response construction
 		response = fmt.Sprintf("Welcome to the Remote Shapes Analyzer\n")
-		response += fmt.Sprintf(" Error: Your input has [%v] vertices, so they can not build any figure\n", len(vertices))
+		response += fmt.Sprintf(" - Your figure has : [%v] vertices\n", len(vertices))
+		response += fmt.Sprint("ERROR - Your shape is not compliying with the minimum number of vertices.\n")
 	}
 	// Send response to client
 	fmt.Fprintf(w, response)
