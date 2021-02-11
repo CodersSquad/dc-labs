@@ -48,34 +48,27 @@ func generatePoints(s string) ([]Point, error) {
 // getArea gets the area inside from a given shape
 func getArea(points []Point) float64 {
 	// shoelace algorithm
-	/*
-			poly.append(poly[0])
-		    sum1, sum2 = 0, 0
-		    for i in range(len(poly) - 1):
-		        sum1 += poly[i].x * poly[i + 1].y
-		        sum2 += poly[i].y * poly[i + 1].x
-		    return fabs(sum1 - sum2) / 2.0
-	*/
-	return 0.0
+	// add first point at the end
+	points = append(points, points[0])
+	sum1, sum2 := 0.0, 0.0
+	for i := 0; i < len(points)-1; i++ {
+		sum1 += points[i].X * points[i+1].Y
+		sum2 += points[i].Y * points[i+1].X
+	}
+	return math.Abs(sum1-sum2) / 2.0
 }
 
 // Distance between two Points
 func Distance(p, q Point) float64 {
 	return math.Hypot(q.X-p.X, q.Y-p.Y)
-	// distance sqrt((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2)
-	// return math.Sqrt(math.Pow(p.X-q.X, 2) + math.Pow(p.Y-q.Y, 2))
 }
 
 // getPerimeter gets the perimeter from a given array of connected points
 func getPerimeter(points []Point) float64 {
-	// sum distance between first and last
 	points = append(points, points[0])
 	perimeter := 0.0
-	// for each point
 	for i := 0; i < len(points)-1; i++ {
-		// distance between actual and next (until penultimate)
 		distance := Distance(points[i], points[i+1])
-		// sum all distances
 		perimeter += distance
 	}
 	return perimeter
