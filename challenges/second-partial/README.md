@@ -1,7 +1,7 @@
 Challenge:  Second Term Partial
 ===============================
 
-This is the second term challenge-based exam for the Distributed Computing Class. This is the beginning of 3 deliverables of your final challenge.
+This is the second term challenge-based exam for the Distributed Computing Class. This is the beginning of 2 deliverables of your final challenge.
 On this challenge you're developing the first part of your final project that will be a parallel image processing system.
 
 A strong recomendation is that you develop your solution the most simple, readable, scalable and plugable as possible. In the following challenges you will
@@ -32,7 +32,8 @@ You're basically implementing the initial entry point for your Distributed and P
 
 Test Cases (from console)
 -------------------------
-Below you will see some examples of input and output on how your program will be tested:
+Below you will see some examples of input and output on how your program will be tested.
+Consider that outpot must be exactly as it's shown below.
 
 - **Login**
 ```
@@ -53,7 +54,7 @@ $ curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/logout
 
 - **Upload**
 ```
-$ curl -F 'data=@path/to/local/image.png' -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/upload
+$ curl -F 'data=@/path/to/local/image.png' -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/upload
 {
 	"message": "An image has been successfully uploaded",
 	"filename": "image.png",
@@ -70,6 +71,13 @@ $ curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/status
 }
 ```
 
+Automated test suite
+--------------------
+Once your API is running you can run the above commands automatically with the following command:
+```
+make test
+```
+
 
 "Game" Rules
 ------------
@@ -82,14 +90,11 @@ $ curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://localhost:8080/status
 General Submission Instructions
 -------------------------------
 1. Make sure your local repository is in sync with the origin remote repository before anything.
-2. Commit and Push your code to your personal repository (fork) and branch (first-partial).
+2. Commit and Push your code to your personal repository (fork) and branch (second-partial).
 
 3. Once you're done, follow common lab's sumission process. More details at: [Classify API](../../classify.md)
 ```
-GITHUB_USER=<your_github_account> make submit
-
-# Example:
-GITHUB_USER=obedmr make submit
+make submit
 ```
 
 Grading Policy
@@ -100,7 +105,7 @@ The grading policy is quite simple, most falls in the test cases. Below the perc
 | Concept                                | %    |
 |----------------------------------------|------|
 | Code Style best practices              | 20%  |
-| Test Cases (one for each API endpoint) | 60%  |
+| Test Cases (15% per API endpoint)      | 60%  |
 | Program meets with all requirements    | 20%  |
 | TOTAL                                  | 100% |
 
