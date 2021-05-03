@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start the time counter
+start=`date +%s`
+
 # Update Ubuntu Repositories
 sudo apt update -y
 
@@ -37,3 +40,6 @@ popd
 
 # Echo
 echo "That's all, if no errors you're all setup for CUDA work"
+
+end=`date +%s`
+echo The Complete Execution time was `expr $end - $start` seconds.
