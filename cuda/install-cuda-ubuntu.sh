@@ -26,7 +26,7 @@ sudo usermod -aG docker $(whoami)
 
 # CUDA Samples tests
 # Evironment Setup
-echo "export PATH=/usr/local/cuda-10.2/bin/:\$PATH" >> $HOME/.profile
+echo "export PATH=/usr/local/cuda-11.3/bin/:\$PATH" >> $HOME/.profile
 echo "export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}" >>  $HOME/.profile
 source $HOME/.profile
 cuda-install-samples-11.3.sh $HOME/cuda-samples
